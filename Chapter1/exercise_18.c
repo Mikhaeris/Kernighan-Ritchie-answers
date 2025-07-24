@@ -3,8 +3,8 @@
 #define MAX_LINE 1000
 
 int getline_c(char line[], int max_line);
-int delete_tail(char line[], int length);
-void print_line(char line[], int length);
+int delete_tail(char s[], int length);
+void print_line(char s[], int length);
 
 int main()
 {
@@ -20,41 +20,40 @@ int main()
     return 0;
 }
 
-int getline_c(char line[], int lim)
+int getline_c(char s[], int lim)
 {
     int c, i;
 
     for (i = 0; i < lim - 1 && (c = getchar()) != EOF && c != '\n'; ++i)
     {
-        line[i] = c;
+        s[i] = c;
     }
     
     if (c == '\n')
     {
-        line[i] = c;
+        s[i] = c;
         ++i;
     }
 
-    line[i] = '\0';
+    s[i] = '\0';
 
     return i;
 }
 
-int delete_tail(char line[], int length)
+int delete_tail(char s[], int length)
 {
     int i;
 
     for(i = length; i > 0; --i)
     {
-        if (line[i] == ' ' || line[i] == '\t' ||
-            line[i] == '\n' || line[i] == '\b' ||
-            line[i] == '\0')
+        if (s[i] == ' ' || s[i] == '\t' || s[i] == '\n'||
+            s[i] == '\b' || s[i] == '\0')
         {
-            line[i] = 0;
+            s[i] = 0;
         }
         else
         {
-            line[i+1] = '\0';
+            s[i+1] = '\0';
             return i+1;
         }
     }

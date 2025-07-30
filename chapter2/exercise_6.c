@@ -14,7 +14,7 @@ int main()
 
 unsigned int setbits(unsigned int x, int p, int n, unsigned int y)
 {
-    unsigned int mask = ~(~0U << n);
+    unsigned int mask = ~(~0u << n);
 
     return  ((y & mask) << (p+1-n)) | (x & ~(mask << (p+1-n)));
 }

@@ -13,6 +13,7 @@ int main()
 
 int bitcount(unsigned int x)
 {
+#if 0
     int ans;
 
     ans = 0;
@@ -23,4 +24,13 @@ int bitcount(unsigned int x)
     }
 
     return ans;
+#elif 1
+    int ans = 0;
+
+    do {
+        ++ans;
+    } while (x &= x-1);
+
+    return ans;
+#endif
 }

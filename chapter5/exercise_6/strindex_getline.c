@@ -24,11 +24,15 @@ int main()
     return found;
 }
 
-int getline_c(char *s, int lim)
-{
+int getline_c(char *s, int lim) {
     char *st = s;
-    while (0 < --lim && (*st = getchar()) != EOF && *st++ != '\n')
-        ;
+    while (--lim > 0 && (*st = getchar()) != EOF && *st != '\n') {
+        st++;
+    }
+
+    if (*st == '\n') {
+        *st++ = '\0';
+    }
 
     *st = '\0';
     return st-s;
